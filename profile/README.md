@@ -22,8 +22,8 @@ We design and implement agentic AI systems for mid-market B2B companies ($50M–
 | Repo | Description |
 |------|-------------|
 | [`agenticrunbook-website`](https://github.com/agenticrunbook-ai/agenticrunbook-website) | Company website — Astro + Tailwind, hosted on Cloudflare Pages. 12-post blog archive. |
-| [`agentic-runbook-ip`](https://github.com/agenticrunbook-ai/agentic-runbook-ip) | Internal IP library — 56 ADRs, engagement playbooks (Diagnose/Build/Transfer), prompt engineering standards, eval framework, client repo templates, SOW/NDA/MSA Jinja2 templates. |
-| [`agentic-runbook-agents`](https://github.com/agenticrunbook-ai/agentic-runbook-agents) | Internal agent fleet — LangGraph implementations for `@finance-bot`, `@legal-bot`, `@cto-bot`, `@ceo-bot`, `@cmo-bot`, `@inbound-triage-agent`, `knowledge-retrieval-mcp`. |
+| [`agentic-runbook-ip`](https://github.com/agenticrunbook-ai/agentic-runbook-ip) | Internal IP library — 57 ADRs, engagement playbooks (Diagnose/Build/Transfer), prompt engineering standards, eval framework, client repo templates, SOW/NDA/MSA Jinja2 templates. |
+| [`agentic-runbook-agents`](https://github.com/agenticrunbook-ai/agentic-runbook-agents) | Internal agent fleet — LangGraph implementations for `@finance-bot`, `@legal-bot`, `@pm-bot`, `@cto-bot`, `@ceo-bot`, `@cmo-bot`, `@inbound-triage-agent`, `knowledge-retrieval-mcp`. |
 | [`company-knowledge-base`](https://github.com/agenticrunbook-ai/company-knowledge-base) | Company-wide knowledge base — strategy documents, published decisions, org principles. |
 | [`agentic-runbook-brand`](https://github.com/agenticrunbook-ai/agentic-runbook-brand) | Brand assets — logo, color system, typography, design guidelines. |
 
@@ -31,7 +31,7 @@ We design and implement agentic AI systems for mid-market B2B companies ($50M–
 
 ### Architecture Decision Records (ADRs)
 
-All major technology and delivery decisions are documented as immutable Architecture Decision Records in [`agentic-runbook-ip/adr/`](https://github.com/agenticrunbook-ai/agentic-runbook-ip/tree/main/adr). **56 ADRs accepted as of May 2026.**
+All major technology and delivery decisions are documented as immutable Architecture Decision Records in [`agentic-runbook-ip/adr/`](https://github.com/agenticrunbook-ai/agentic-runbook-ip/tree/main/adr). **57 ADRs accepted as of May 2026.**
 
 **Selected decisions:**
 
@@ -49,10 +49,12 @@ All major technology and delivery decisions are documented as immutable Architec
 | ADR-031 | MCP (Model Context Protocol) as standard tool integration protocol |
 | ADR-035 | Agent Versioning & Rollback Standard — SemVer, git tags, rollback SLA ≤30 min P1 |
 | ADR-041 | Agent Observability & Cost Attribution — LangSmith metadata tags, weekly cost rollup |
+| ADR-042 | @pm-bot Spec — sprint PM, GitHub Issue management, weekly status reports |
 | ADR-050 | Client Engagement SOW Template Standard — Jinja2 templates, 3-phase SOW library |
 | ADR-051 | Day-1 Go-Live Operations Runbook — T-24h checklist, T-0 launch sequence, rollback plan |
 | ADR-055 | MSA & NDA Template Standard — Jinja2 NDA/MSA, sub-4h NDA turnaround target |
 | ADR-056 | @legal-bot Full Implementation — contract review, NDA/MSA/SOW generation, 5-tier risk model |
+| ADR-057 | @pm-bot Full Implementation — LangGraph StateGraph, milestone tracking, blocker escalation |
 
 ---
 
@@ -65,6 +67,7 @@ All major technology and delivery decisions are documented as immutable Architec
 | `@cmo-bot` | Chief Marketing Officer | Claude 3.5 Sonnet | Active |
 | `@finance-bot` | Finance & invoicing operations | GPT-4o | Deploy-ready |
 | `@legal-bot` | Contract review, NDA/MSA/SOW generation | Claude 3.5 Sonnet | Deploy-ready |
+| `@pm-bot` | Engagement PM — milestones, GitHub Issues, weekly status, blocker escalation | GPT-4o | Deploy-ready |
 | `@inbound-triage-agent` | Lead qualification & routing | GPT-4o | Deploy-ready |
 | `knowledge-retrieval-mcp` | Qdrant-backed RAG MCP server | — | Deploy-ready |
 
