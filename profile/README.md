@@ -2,8 +2,8 @@
 
 AI consulting firm specializing in production-ready agentic systems. We build multi-agent systems your team can own, operate, and extend — not a dependency on our services.
 
-**Domain:** agenticrunbook.ai  
-**Stack:** LangGraph · LangChain · LangSmith · Python 3.12 · MCP (Model Context Protocol)
+**Domain:** [agenticrunbook.ai](https://agenticrunbook.ai)  
+**Stack:** LangGraph · LangChain · LangSmith · Python 3.12 · MCP (Model Context Protocol) · Cloudflare Pages · Astro
 
 ---
 
@@ -11,9 +11,9 @@ AI consulting firm specializing in production-ready agentic systems. We build mu
 
 We design and implement agentic AI systems for mid-market B2B companies ($50M–$500M revenue). Our engagements follow a three-phase methodology:
 
-- **Diagnose** — Map workflows, identify automation candidates, prioritize by ROI
-- **Build** — Implement production-grade agents using LangGraph for orchestration, LangSmith for observability, and MCP for tool integration
-- **Transfer** — Hand off running systems with documentation, runbooks, and ADRs so your team can operate and extend without us
+- **Diagnose** — Map workflows, identify automation candidates, prioritize by ROI. Output: scored workflow map + build recommendation.
+- **Build** — Implement production-grade agents using LangGraph for orchestration, LangSmith for observability, and MCP for tool integration.
+- **Transfer** — Hand off running systems with documentation, runbooks, and ADRs so your team can own and extend without us.
 
 ---
 
@@ -21,25 +21,52 @@ We design and implement agentic AI systems for mid-market B2B companies ($50M–
 
 | Repo | Description |
 |------|-------------|
-| `agenticrunbook-website` | Company website — Astro + Tailwind, hosted on Cloudflare Pages |
-| `agentic-runbook-ip` | Internal IP library — ADR archive, engagement playbooks, prompt engineering standards, eval framework, client repo template |
+| [`agenticrunbook-website`](https://github.com/agenticrunbook-ai/agenticrunbook-website) | Company website — Astro + Tailwind, hosted on Cloudflare Pages. 12-post blog archive. |
+| [`agentic-runbook-ip`](https://github.com/agenticrunbook-ai/agentic-runbook-ip) | Internal IP library — 53 ADRs, engagement playbooks (Diagnose/Build/Transfer), prompt engineering standards, eval framework, client repo templates, SOW templates. |
+| [`agentic-runbook-agents`](https://github.com/agenticrunbook-ai/agentic-runbook-agents) | Internal agent fleet — LangGraph implementations for `@finance-bot`, `@cto-bot`, `@ceo-bot`, `@cmo-bot`, `@inbound-triage-agent`, `knowledge-retrieval-mcp`. |
+| [`company-knowledge-base`](https://github.com/agenticrunbook-ai/company-knowledge-base) | Company-wide knowledge base — strategy documents, published decisions, org principles. |
+| [`agentic-runbook-brand`](https://github.com/agenticrunbook-ai/agentic-runbook-brand) | Brand assets — logo, color system, typography, design guidelines. |
 
 ---
 
-### Technology Decisions
+### Architecture Decision Records (ADRs)
 
-All major technology decisions are documented as Architecture Decision Records (ADRs) in the `agentic-runbook-ip` repository. Current decisions include:
+All major technology and delivery decisions are documented as immutable Architecture Decision Records in [`agentic-runbook-ip/adr/`](https://github.com/agenticrunbook-ai/agentic-runbook-ip/tree/main/adr). 53 ADRs accepted as of May 2026.
 
-- LangGraph as default orchestration framework (ADR-001)
-- LangSmith as observability standard (ADR-003)
-- Model-agnostic LLM layer with OpenAI/Anthropic defaults (ADR-004)
-- MCP as standard tool protocol (ADR-031)
-- Cloudflare Pages for web hosting (ADR-008)
+**Selected decisions:**
+
+| ADR | Decision |
+|-----|----------|
+| ADR-001 | LangGraph as default agent orchestration framework |
+| ADR-003 | LangSmith as sole observability platform |
+| ADR-004 | Model-agnostic LLM layer — OpenAI (gpt-4o) + Anthropic (claude-3-5-sonnet) defaults |
+| ADR-008 | Cloudflare Pages for web hosting |
+| ADR-024 | Agent Eval Framework — golden dataset, P0/P1/P2 metric hierarchy, CI eval gate |
+| ADR-025 | Fleet Agent Deployment Standards — naming, env vars, AGENTS.md frontmatter |
+| ADR-026 | Security & Secrets Management Standard — 3-tier model, HMAC-256, rotation policy |
+| ADR-028 | LangGraph Agentic Patterns Standard — 5 canonical patterns, state design rules |
+| ADR-029 | Data Privacy & Client Data Handling Standard — 3-tier taxonomy, per-client isolation |
+| ADR-031 | MCP (Model Context Protocol) as standard tool integration protocol |
+| ADR-035 | Agent Versioning & Rollback Standard — SemVer, git tags, rollback SLA ≤30 min P1 |
+| ADR-036 | Agent Monitoring & Alerting Runbook — P1/P2/P3 tiers, LangSmith polling, `AlertManager` |
+| ADR-041 | Agent Observability & Cost Attribution — LangSmith metadata tags, weekly cost rollup |
+| ADR-051 | Day-1 Go-Live Operations Runbook — T-24h checklist, T-0 launch sequence, rollback plan |
+
+---
+
+### Engagement Methodology
+
+Our IP library contains the full delivery methodology:
+
+- **Diagnose Playbook v1.0** — 3-week diagnostic sprint: workflow mapping, agent readiness scoring, ROI prioritization
+- **Build Playbook v1.0** — Sprint 0–4 structure, RACI, technical standards reference, exit criteria
+- **Transfer Playbook v1.0** — 35-item exit checklist, capability transfer protocol, 3-tier retainer model
+- **Agentic Academy Curriculum v1.0** — 6-module, 40-hour curriculum for client team upskilling
 
 ---
 
 ### Contact
 
 - Website: [agenticrunbook.ai](https://agenticrunbook.ai)
-- Blog: [agenticrunbook.ai/blog](https://agenticrunbook.ai/blog)
-- Inquiries: hello@agenticrunbook.ai
+- Diagnostic Sprint: [agenticrunbook.ai/diagnostic-sprint](https://agenticrunbook.ai/diagnostic-sprint)
+- Inquiries: [hello@agenticrunbook.ai](mailto:hello@agenticrunbook.ai)
